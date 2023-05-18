@@ -65,8 +65,8 @@ axios.get('https://api.weatherstack.com/current', {params}).then(response => {
 
 .bottom{
 
-  margin-top: calc(-350px + var(--modif));
-  /* margin-top: -350px; */
+  /* margin-top: calc(-350px + var(--modif)); */
+  margin-top: -350px;
   width: 1183px;
   height: 300px;
   border-style:solid;
@@ -76,8 +76,8 @@ axios.get('https://api.weatherstack.com/current', {params}).then(response => {
 
 .ads{
   width: 300px;
-  height: calc(710px - var(--modif));
-  /* height: 710px; */
+  /* height: calc(710px - var(--modif)); */
+  height: 710px;
   border-style: solid;
   border-width: 5px;
 }
