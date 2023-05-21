@@ -7,20 +7,13 @@ let tempElement = document.querySelector("#temp");
 
 //const axios = require('axios');
 import axios from 'axios';
-const params = {
-  access_key: '0f549269c2c9f91d6bb6b2799fbe98dc',
-  query: 'New York City'
-}
+const key = `de6cd20b072551d7ea89eb5c4cce3e53`;
+const city = `singapore`;
+const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`;
+let data;
+let error;
 
-axios.get('https://api.weatherstack.com/current', {params}).then(response => {
-    apiResponse = response.data;
-    tempElement = document.querySelector("#temp");
-    tempElement.textContent = `${apiResponse.current.temperature}℃`;
-    console.log(`Current temperature in ${apiResponse.location.name} is ${apiResponse.current.temperature}℃`);
-  }).catch(error => {
-    tempElement.textContent = `ERROR`;
-    console.log(error);
-  });
+fetch(url).then(response => response.json()).then(Rdata => { data = Rdata;console.log(data); }).catch(err => {error = err ="ERROR";});
 </script>
 <style>
 
