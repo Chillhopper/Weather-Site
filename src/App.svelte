@@ -17,7 +17,7 @@ fetch(url).then(response => response.json()).then(Rdata => { data = Rdata;consol
 </script>
 <style>
 
-:root{
+:root{  
   --modif: 0;
 }
 
