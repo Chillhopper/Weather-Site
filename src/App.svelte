@@ -1,8 +1,6 @@
 
 
 
-
-
 <html lang="en">
   <head>
     <style>
@@ -98,18 +96,39 @@
       const lon = -94.04;
       const key = `99c042eb03da73b38db5660bf9e9372c`;
       const city = `singapore`;
-      const url = `https://api.openweathermap.org/data/3.0/onecall?${lat}&${lon}=-94.04&exclude=hourly,daily&appid=${key}`;//`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`;
+      const urlFree = `http://api.openweathermap.org/data/2.5/forecast?id=524901&appid=de6cd20b072551d7ea89eb5c4cce3e53`;
       let data;
       let error;
       let temp;
-      
-      
-      fetch(url).then(response => response.json()).then(Rdata => {
-         data = Rdata;
-          temp = Rdata.current.temp;
-          tempElement.textContent = `${temp}`;
-          console.log(Rdata);
-        }).catch(err => {error = err ="ERROR"; tempElement.textContent = `${error}`;});
+        
+        fetch(urlFree).then((Rdata) => {console.log("reached 1");return Rdata.json()}).then((jsonres) => {
+            console.log("reached 2");
+            data = jsonres;
+            console.log(data);
+            temp = jsonres.cod;
+            tempElement.textContent = `${temp}`;
+          }).catch(err => {tempElement.textContent = ` catch activated: ${err}`;});
+        
+        
+          
+          /*
+        const caturl = "https://catfact.ninja/fact";
+        fetch(caturl).then(Rdata => {
+          Rdata.json(); 
+        }).then(factdata => {
+          data = factdata;
+          document.querySelector("#temp").textContent = `${factdata.fact}`;
+        });
+
+      */
+
+      /*
+    fetch("https://catfact.ninja/fact")
+    .then((res) => res.json())
+    .then((Rdata) => {
+      document.querySelector("#temp").textContent = `${Rdata.fact}`;
+    });
+     */ 
     
       </script>
 
