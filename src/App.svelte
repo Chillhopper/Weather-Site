@@ -75,7 +75,10 @@
       </div> -->
       
       <div class = "stats">
-        <h1 class = "weather">The current temperature is: <span id = "temp"></span></h1>
+        <h1 class = "weather">The current temperature in Moscow is: <span id = "temp"></span></h1>
+        <button type = "button" id="toK" onclick="getweather()">°K</button>
+        <button type = "button" id="toF" onclick="farcon()">°F</button>
+        <button type = "button" id="toCel" onclick="celcon()">°C</button>
       </div>
     
       <div class = "ads" ></div>
@@ -90,6 +93,7 @@
       //let image1 = "dino.jpg"
       let apiResponse;
       const tempElement = document.querySelector("#temp");
+      const celbutton = document.getElementById("tocel");
       
       //const axios = require('axios');
       const lat = 33.44;
@@ -100,17 +104,31 @@
       let data;
       let error;
       let temp;
-        
+      let tempcel;
+      let tempfar;
+      
+      function getweather(){
         fetch(urlFree).then((Rdata) => {console.log("reached 1");return Rdata.json()}).then((jsonres) => {
             console.log("reached 2");
             data = jsonres;
             console.log(data);
-            temp = jsonres.cod;
-            tempElement.textContent = `${temp}`;
-          }).catch(err => {tempElement.textContent = ` catch activated: ${err}`;});
+            temp = jsonres.list[0].main.temp;
+            tempElement.textContent = `${temp.toFixed(1)}°K`;
+          }).catch(err => {tempElement.textContent = ` catch activated: ${err}`;}); 
+      }
+
+      function celcon(){
+        tempcel = (temp - 273.15);
+        tempElement.textContent = `${tempcel.toFixed(1)}°C`;
+      }
         
-        
-          
+      function farcon(){
+        tempfar = (temp - 273.15) * 1.8 + 32;
+        tempElement.textContent = `${tempfar.toFixed(1)}°F`;
+      }
+      getweather();
+      
+
           /*
         const caturl = "https://catfact.ninja/fact";
         fetch(caturl).then(Rdata => {
