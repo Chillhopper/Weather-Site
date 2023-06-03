@@ -1,6 +1,4 @@
 
-
-
 <html lang="en">
   <head>
     <style>
@@ -14,8 +12,10 @@
       }
       
       .weather{
-        color: blue;
+        color: purple;
         font-size: 10x;
+        grid-column-start: 1;
+        grid-column-end: 3;
         /* text-align: center; */
       }
       
@@ -35,18 +35,11 @@
       }
       
       .stats{
-        width: 900px;
-        height: 350px;
         border-style:solid;
-        border-width: 5px;
-        float:left;
-        margin-right: 10px;
-        
       }
       
       .bottom{
       
-        /* margin-top: calc(-350px + var(--modif)); */
         margin-top: -350px;
         width: 1183px;
         height: 300px;
@@ -62,29 +55,40 @@
         border-style: solid;
         border-width: 5px;
       }
+
+      .gridTime{
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 10px;
+        padding: 10px;
+        
+      }
+
+      .gridTime > div{
+        border-style: solid;
+        background-color: blue;
+        min-height: 100px;
+      }
+
+      .item2{
+        grid-row-start: 1;
+        grid-row-end: 3;
+      }
+
       </style>
   </head>
   <body>
-    <div class = "container">
-
-      <!-- <div class = "dino">
-        <h1>"hello there, {@html name}!"</h1>
-        <img src={image1} alt="A dino" width = "50%">
-        <label for="initText" class = "generic">Enter your favourite dino</label>
-        <input type = "text" id = "initText" name = "placeholder">
-      </div> -->
+    <div class = "gridTime">
       
-      <div class = "stats">
+      <div>
         <h1 class = "weather">The current temperature in Moscow is: <span id = "temp"></span></h1>
         <button type = "button" id="toK" onclick="getweather()">°K</button>
         <button type = "button" id="toF" onclick="farcon()">°F</button>
         <button type = "button" id="toCel" onclick="celcon()">°C</button>
       </div>
+      <div class = "item2"></div>
+      <div></div>
     
-      <div class = "ads" ></div>
-    
-    </div>
-    <div class = "bottom">
     </div>
 
     <script>
@@ -123,25 +127,7 @@
       getweather();
       
 
-          /*
-        const caturl = "https://catfact.ninja/fact";
-        fetch(caturl).then(Rdata => {
-          Rdata.json(); 
-        }).then(factdata => {
-          data = factdata;
-          document.querySelector("#temp").textContent = `${factdata.fact}`;
-        });
 
-      */
-
-      /*
-    fetch("https://catfact.ninja/fact")
-    .then((res) => res.json())
-    .then((Rdata) => {
-      document.querySelector("#temp").textContent = `${Rdata.fact}`;
-    });
-     */ 
-    
       </script>
 
   </body>
