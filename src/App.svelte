@@ -88,18 +88,12 @@
     </div>
 
     <script>
-      //import axios from 'axios';
-      //let name = "<u style=\"color:blue;\">luigi</u>"
-      //let image1 = "dino.jpg"
       let apiResponse;
       const tempElement = document.querySelector("#temp");
       const celbutton = document.getElementById("tocel");
       
       //const axios = require('axios');
-      const lat = 33.44;
-      const lon = -94.04;
-      const key = `99c042eb03da73b38db5660bf9e9372c`;
-      const city = `singapore`;
+
       const urlFree = `http://api.openweathermap.org/data/2.5/forecast?id=524901&appid=de6cd20b072551d7ea89eb5c4cce3e53`;
       let data;
       let error;
