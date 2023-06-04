@@ -70,7 +70,18 @@
         min-height: 100px;
       }
 
+      .item1{
+        grid-column-start:1;
+        grid-column-end:2
+
+        grid-row-start:1;
+        grid-row-end:2;
+      }
+
       .item2{
+        grid-column-start:2;
+        grid-column-end:3;
+
         grid-row-start: 1;
         grid-row-end: 3;
       }
