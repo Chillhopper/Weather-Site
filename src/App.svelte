@@ -1,6 +1,7 @@
 
 <html lang="en">
   <head>
+    <script src = "https://d3js.org/d3.v4.min.js"></script>
     <style>
 
       :root{  
@@ -58,7 +59,7 @@
 
       .gridTime{
         display: grid;
-        grid-template-columns: auto auto;
+        grid-template-columns: 60% auto;
         gap: 10px;
         padding: 10px;
         
@@ -76,6 +77,7 @@
 
         grid-row-start:1;
         grid-row-end:2;
+
       }
 
       .item2{
@@ -101,6 +103,9 @@
       <div></div>
     
     </div>
+    <svg width = "500" height = "500">
+      <rect x="0" y="0" height="200" width="300" fill="yellow"></rect>
+    </svg>
 
     <script>
       let apiResponse;
